@@ -23,6 +23,50 @@ and create a directory where to pull locally and compile required libraries and 
 1.2 Trusted Platform Module dependencies
 ````````````````````````````````````````
 
+To install the Trusted Platform Module dependencies, we will use the `tpm2-tss <https://github.com/tpm2-software/tpm2-tss/blob/master/INSTALL.md>`_ install guide.
+
+First, cd to your working libraries directory
+
+.. code-block:: bash
+
+    cd libraries
+
+Install dependencies for the *tpm2-tss* library:
+
+.. code-block:: bash
+
+    sudo apt -y install autoconf-archive libcmocka0 libcmocka-dev procps iproute2 build-essential git pkg-config   gcc   libtool automake libssl-dev uthash-dev autoconf doxygen libjson-c-dev libini-config-dev libcurl4-openssl-dev uuid-dev   libltdl-dev libusb-1.0-0-dev libftdi-dev
+
+Clone the git project:
+
+.. code-block:: bash
+
+    git clone https://github.com/tpm2-software/tpm2-tss.git
+
+Cd into the project directory
+
+.. code-block:: bash
+
+    cd tpm2-tss
+
+And proceed with the project configuration and compilation
+
+.. code-block:: bash
+
+    ./bootstrap
+
+.. code-block:: bash
+
+    ./configure
+
+.. code-block:: bash
+
+    make -j$(nproc)
+
+.. code-block:: bash
+
+    sudo make install
+
 1.3 Virtual Trusted Platform Module instalation
 ````````````````````````````````````````````````
 
