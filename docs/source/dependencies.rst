@@ -17,11 +17,14 @@ and create a directory where to pull locally and compile required libraries and 
 
 .. code-block:: bash
 
-    mkdir libraries
+    mkdir <your-path>/libraries
 
 
 1.2 Trusted Platform Module dependencies
 ````````````````````````````````````````
+
+1.2.1 TPM2-TSS library installation
++++++++++++++++++++++++++++++++++++
 
 To install the Trusted Platform Module dependencies, we will use the `tpm2-tss <https://github.com/tpm2-software/tpm2-tss/blob/master/INSTALL.md>`_ install guide.
 
@@ -29,7 +32,7 @@ First, cd to your working libraries directory
 
 .. code-block:: bash
 
-    cd libraries
+    cd <your-path>/libraries
 
 Install dependencies for the *tpm2-tss* library:
 
@@ -66,6 +69,52 @@ And proceed with the project configuration and compilation
 .. code-block:: bash
 
     sudo make install
+
+1.2.2 TPM2-TOOLS installation
++++++++++++++++++++++++++++++
+
+TPM2-TOOLS is a set of utilities that can be usefull to test and interact with the TPM from a command line. The installation process is similar with the previous one.
+
+Be sure you are in the libraries directory:
+
+.. code-block:: bash
+
+    cd <your-path>/libraries
+
+Clone the project:
+
+.. code-block:: bash
+
+    git clone https://github.com/tpm2-software/tpm2-tools.git
+
+Cd into the project directory:
+
+.. code-block:: bash
+
+    cd tpm2-tools
+
+Configure and compile with the following sequence of commands:
+
+.. code-block:: bash
+
+    ./bootstrap
+
+.. code-block:: bash
+
+    ./configure
+
+.. code-block:: bash
+
+    make -j$(nproc)
+
+.. code-block:: bash
+
+    sudo make install
+
+
+1.2.3 TPM2-ABRMD installation
++++++++++++++++++++++++++++++
+
 
 1.3 Virtual Trusted Platform Module instalation
 ````````````````````````````````````````````````
