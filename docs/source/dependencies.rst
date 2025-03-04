@@ -71,3 +71,41 @@ The argument *--break-system-packages* is used to install the module system-wide
 
 1.5 Virtual Controller Area Network configuration
 `````````````````````````````````````````````````
+
+To setup a virtual Controller Area Network interface we will create a service that starts on system boot and keeps the vcan interface alive. To do this, first go in your *libraries* directory and clone the repository below:
+
+Go to your libraries/dependencies directory:
+
+.. code-block:: bash
+  
+    cd libraries
+
+Clone the repository:
+
+.. code-block:: bash
+
+    git clone https://github.com/terilenard/vcan-setup.git
+
+This repository has the neccesary scripts and configs to setup the virtual CAN interface. Prior to running the *vcan.sh* script, we also need to install *can-utils*:
+
+.. code-block:: bash
+    sudo apt install can-utils
+
+Afterwards, got to the *vcan-setup* directory:
+
+.. code-block:: bash
+
+    cd vcan-setup
+
+And run:
+
+.. code-block:: bash
+
+    sudo ./vcan.sh
+
+After running the script, a new interface should be visible named vcan0 in the output of the following command:
+
+.. code-block:: bash
+
+    ip link
+
